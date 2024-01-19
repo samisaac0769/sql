@@ -1,4 +1,4 @@
-
+--1. From the above table return complete information about the employees.
 	select *from Employees;
 
 --2. From the table, write a SQL query to find the salaries of all employees. Return salary.
