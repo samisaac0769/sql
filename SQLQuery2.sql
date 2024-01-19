@@ -1,4 +1,3 @@
---1. From the above table return complete information about the employees.
 
 	select *from Employees;
 
@@ -10,7 +9,7 @@
 
 	select DISTINCT  job_name from Employees;
 
---4. From the following table, write a SQL query to list the employees’ names, increase their salary by 15%, 
+--4. From the following table, write a SQL query to list the employeesâ€™ names, increase their salary by 15%, 
 --and express the number of Dollars.
 
 	Select emp_name, CONCAT('$ ' , CAST(salary+(salary*0.15) AS decimal(10,2))) as Salary from Employees;
@@ -45,11 +44,11 @@
 	Select *from Employees where YEAR(hire_date) < '1991';
 
 --11. From the following table, write a SQL query to compute the average salary of those employees 
---who work as ‘ANALYST’. Return average salary.
+--who work as â€˜ANALYSTâ€™. Return average salary.
 
 	Select AVG(salary) as average from Employees where job_name = 'Analyst';
 
---12. From the following table, write a SQL query to find the details of the employee ‘isaac’.
+--12. From the following table, write a SQL query to find the details of the employee â€˜isaacâ€™.
 
 	Select *from Employees Where emp_name = 'isaac';
 
@@ -105,26 +104,26 @@
 	Select dep_id,count(dep_id) from Employees group by dep_id having count(dep_id) >2;
 	
 --23. From the table, write a SQL query to find those employees whose names contain the character set 'SA' together.
---Return complete information about the employees. (using ‘like’)
+--Return complete information about the employees. (using â€˜likeâ€™)
 
 	Select *from Employees where emp_name like '%SA%';
 
---24. Add a column for “Gender” in the employee table and update each row accordingly. 
+--24. Add a column for â€œGenderâ€ in the employee table and update each row accordingly. 
 
 	Alter table employees add gender varchar(10) 
 	update Employees set gender = 'male' where emp_id='6';
 
 
---25. From the above table we need to retrieve all employees except ‘Manager’ & ’President’ Job name. 
+--25. From the above table we need to retrieve all employees except â€˜Managerâ€™ & â€™Presidentâ€™ Job name. 
 
 	Select *from Employees where not job_name = 'PRESIDENT' AND not job_name = 'MANAGER';
 
 <<<<<<< HEAD
---26. From the above table we need to display �Management Level� - labelname for �President�,�Manager�,�Analyst� jobs
---and �Employee Level� - label name for �Salesman�,�Clerk� job names.
-=======
 --26. From the above table we need to display ‘Management Level’ - labelname for ‘President’,’Manager’,’Analyst’ jobs
 --and ‘Employee Level’ - label name for ‘Salesman’,’Clerk’ job names.
+=======
+--26. From the above table we need to display â€˜Management Levelâ€™ - labelname for â€˜Presidentâ€™,â€™Managerâ€™,â€™Analystâ€™ jobs
+--and â€˜Employee Levelâ€™ - label name for â€˜Salesmanâ€™,â€™Clerkâ€™ job names.
 >>>>>>> 54b9796d6f78ca7ef03fe54ab07112668b60d801
 
 	Select job_name,
@@ -133,7 +132,7 @@
 		when job_name in ('Salesman','Clerk') then  'Employee Level'
 	end as 'Job level' from Employees;
 
---27. Update commission field to 650.00 for job name titled as  �analyst� in �employee� table using �Exist� clauses.
+--27. Update commission field to 650.00 for job name titled as  “analyst” in “employee” table using “Exist” clauses.
 
 	UPDATE Employees
 	SET commission = '650.00'
