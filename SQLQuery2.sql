@@ -10,7 +10,7 @@
 
 	select DISTINCT  job_name from Employees;
 
---4. From the following table, write a SQL query to list the employeesí names, increase their salary by 15%, 
+--4. From the following table, write a SQL query to list the employees‚Äô names, increase their salary by 15%, 
 --and express the number of Dollars.
 
 	Select emp_name, CONCAT('$ ' , CAST(salary+(salary*0.15) AS decimal(10,2))) as Salary from Employees;
@@ -45,11 +45,11 @@
 	Select *from Employees where YEAR(hire_date) < '1991';
 
 --11. From the following table, write a SQL query to compute the average salary of those employees 
---who work as ëANALYSTí. Return average salary.
+--who work as ‚ÄòANALYST‚Äô. Return average salary.
 
 	Select AVG(salary) as average from Employees where job_name = 'Analyst';
 
---12. From the following table, write a SQL query to find the details of the employee ëisaací.
+--12. From the following table, write a SQL query to find the details of the employee ‚Äòisaac‚Äô.
 
 	Select *from Employees Where emp_name = 'isaac';
 
@@ -105,22 +105,27 @@
 	Select dep_id,count(dep_id) from Employees group by dep_id having count(dep_id) >2;
 	
 --23. From the table, write a SQL query to find those employees whose names contain the character set 'SA' together.
---Return complete information about the employees. (using ëlikeí)
+--Return complete information about the employees. (using ‚Äòlike‚Äô)
 
 	Select *from Employees where emp_name like '%SA%';
 
---24. Add a column for ìGenderî in the employee table and update each row accordingly. 
+--24. Add a column for ‚ÄúGender‚Äù in the employee table and update each row accordingly. 
 
 	Alter table employees add gender varchar(10) 
 	update Employees set gender = 'male' where emp_id='6';
 
 
---25. From the above table we need to retrieve all employees except ëManagerí & íPresidentí Job name. 
+--25. From the above table we need to retrieve all employees except ‚ÄòManager‚Äô & ‚ÄôPresident‚Äô Job name. 
 
 	Select *from Employees where not job_name = 'PRESIDENT' AND not job_name = 'MANAGER';
 
+<<<<<<< HEAD
 --26. From the above table we need to display ëManagement Levelí - labelname for ëPresidentí,íManagerí,íAnalystí jobs
 --and ëEmployee Levelí - label name for ëSalesmaní,íClerkí job names.
+=======
+--26. From the above table we need to display ‚ÄòManagement Level‚Äô - labelname for ‚ÄòPresident‚Äô,‚ÄôManager‚Äô,‚ÄôAnalyst‚Äô jobs
+--and ‚ÄòEmployee Level‚Äô - label name for ‚ÄòSalesman‚Äô,‚ÄôClerk‚Äô job names.
+>>>>>>> 54b9796d6f78ca7ef03fe54ab07112668b60d801
 
 	Select job_name,
 	case 
