@@ -122,11 +122,20 @@
 --26. From the above table we need to display ‘Management Level’ - labelname for ‘President’,’Manager’,’Analyst’ jobs
 --and ‘Employee Level’ - label name for ‘Salesman’,’Clerk’ job names.
 
-
 	Select job_name,
 	case 
 		when job_name in ('President','Manager','Analyst') then  'Management Level'
 		when job_name in ('Salesman','Clerk') then  'Employee Level'
-	end from Employees;
+	end as 'Job level' from Employees;
 
+--27. Update commission field to 650.00 for job name titled as  “analyst” in “employee” table using “Exist” clauses.
+
+	UPDATE Employees
+	SET commission = '650.00'
+	WHERE EXISTS (
+		SELECT 1
+		FROM Employees e
+		WHERE e.job_name = 'analyst'
+		AND Employees.emp_id = e.emp_id -- Add the appropriate condition to correlate the subquery
+	);
 
